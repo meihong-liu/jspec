@@ -1,0 +1,35 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+group = 'org.jspec'
+version = '1.0.0'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+jar {
+  baseName = 'org.jspec'
+  version = '1.0.0'
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  // junit
+  compile 'junit:junit:4.12'
+  
+  // groovy
+  compile 'org.codehaus.groovy:groovy-all:2.4.1'
+  testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+
+  // matcher
+  testCompile "org.hamcrest:hamcrest-core:1.3"
+
+  // mock
+  testRuntime "cglib:cglib-nodep:3.1"
+  testRuntime "org.objenesis:objenesis:2.1"
+}
